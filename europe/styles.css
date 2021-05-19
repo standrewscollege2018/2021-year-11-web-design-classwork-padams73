@@ -1,0 +1,38 @@
+body {
+  background-color: rgb(75, 59, 64);
+}
+/* Formatting the text on our site */
+h1 {
+  color: rgb(0, 109, 170);
+  font-family: Papyrus, sans-serif;
+  font-size: 50pt;
+}
+h2 {
+  color: rgb(248, 198, 48);
+  font-family: Calibri, sans-serif;
+  font-size: 30pt;
+}
+p {
+  color: rgb(245, 221, 221);
+  font-family: Calibri, Arial, sans-serif;
+  font-size: 20pt;
+}
+ul {
+  color: rgb(245, 221, 221);
+  font-family: Calibri, Arial, sans-serif;
+  font-size: 20pt;
+}
+/* Formatting links */
+a:link {
+  text-decoration: none;
+  color: rgb(0, 109, 170);
+  font-size: 20pt;
+}
+a:hover {
+  text-decoration: underline;
+  color: rgb(0, 109, 170);
+}
+a:visited {
+  text-decoration: none;
+  color: rgb(0, 109, 170);
+}
