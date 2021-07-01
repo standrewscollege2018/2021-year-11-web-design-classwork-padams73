@@ -1,8 +1,8 @@
 <?php
-
+// Check if the user has guessed or if it is blank
 if (!isset($_POST['guess']) or $_POST['guess']=="") {
   // Redirect to guess
-  header("Location: guess.php");
+  header("Location: guess.php?error=blank");
 }
 
 $guess = $_POST['guess'];
