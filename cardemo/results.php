@@ -28,9 +28,10 @@
           If there are, display them in a do while loop.
           If not, display "No results found". -->
     <?php
-      $search_sql = "SELECT car.*, make.make FROM car JOIN make ON car.makeID=make.makeID WHERE car.numberplate LIKE '%$search%' OR car.model LIKE '%$search%' OR make.make LIKE '%$search%'";
+      $search_sql = "SELECT car.*, make.name FROM car JOIN make ON car.makeID=make.makeID WHERE car.numberplate LIKE '%$search%' OR car.model LIKE '%$search%' OR make.name LIKE '%$search%'";
       $search_qry = mysqli_query($dbconnect, $search_sql);
-      if(mysqli_num_rows($search_qry)==0) {
+      $num_results = mysqli_num_rows($search_qry);
+      if($num_results==0) {
         echo "<h1>No results found</h1>";
       } else {
         $search_aa = mysqli_fetch_assoc($search_qry);
@@ -39,10 +40,12 @@
           $numberplate = $search_aa['numberplate'];
           $driver = $search_aa['driver'];
           $colour = $search_aa['colour'];
-          $make = $search_aa['make'];
+          $make = $search_aa['name'];
           $model = $search_aa['model'];
+          $image = $search_aa['image'];
           ?>
           <div class="card">
+            <img src="images/<?php echo $image; ?>" alt="" class="img-resize">
             <h1><?php echo $numberplate; ?></h1>
             <p>Colour: <?php echo $colour; ?></p>
             <p>Driver: <?php echo $driver; ?></p>

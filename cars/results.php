@@ -25,15 +25,22 @@
     // Step 2: We run the query using the mysqli_query() function
     // Notice the name of the variable, it ends with _qry
     $car_qry = mysqli_query($dbconnect, $car_sql);
+
+    $num_results = mysqli_num_rows($car_qry);
+
     // Step 3: organise into array we can use more easily
     $car_aa = mysqli_fetch_assoc($car_qry);
 
     do {
       $carID = $car_aa['carID'];
       $numberplate = $car_aa['numberplate'];
+      $image = $car_aa['image'];
       ?>
       <div class="card">
         <h1><?php echo "<a href='car.php?carID=$carID'>$numberplate</a>"; ?></h1>
+        <img src="images/<?php echo $image; ?>" alt="">
+
+
       </div>
       <?php
     } while ($car_aa = mysqli_fetch_assoc($car_qry));
